@@ -1,0 +1,638 @@
+{
+  "Edinburch": [
+    {
+      "London": 4
+    }
+  ],
+  "London": [
+    {
+      "Edinburch": 4
+    },
+    {
+      "Amsterdam": 2
+    },
+    {
+      "Dieppe": 2
+    }
+  ],
+  "Amsterdam": [
+    {
+      "London": 2
+    },
+    {
+      "Bruxelles": 1
+    },
+    {
+      "Essen": 3
+    },
+    {
+      "Frankfurt": 2
+    }
+  ],
+  "Dieppe": [
+    {
+      "London": 2
+    },
+    {
+      "Brest": 2
+    },
+    {
+      "Paris": 1
+    },
+    {
+      "Bruxelles": 2
+    }
+  ],
+  "Brest": [
+    {
+      "Dieppe": 2
+    },
+    {
+      "Paris": 3
+    },
+    {
+      "Pamplona": 4
+    }
+  ],
+  "Paris": [
+    {
+      "Dieppe": 1
+    },
+    {
+      "Brest": 3
+    },
+    {
+      "Bruxelles": 2
+    },
+    {
+      "Frankfurt": 3
+    },
+    {
+      "Zurich": 3
+    },
+    {
+      "Marseille": 4
+    },
+    {
+      "Pamplona": 4
+    }
+  ],
+  "Bruxelles": [
+    {
+      "Dieppe": 2
+    },
+    {
+      "Amsterdam": 1
+    },
+    {
+      "Paris": 2
+    },
+    {
+      "Frankfurt": 2
+    }
+  ],
+  "Essen": [
+    {
+      "Amsterdam": 3
+    },
+    {
+      "Frankfurt": 2
+    },
+    {
+      "Kobenhavn": 3
+    },
+    {
+      "Berlin": 2
+    }
+  ],
+  "Frankfurt": [
+    {
+      "Paris": 3
+    },
+    {
+      "Bruxelles": 2
+    },
+    {
+      "Amsterdam": 2
+    },
+    {
+      "Essen": 2
+    },
+    {
+      "Berlin": 3
+    },
+    {
+      "Munchen": 2
+    }
+  ],
+  "Berlin": [
+    {
+      "Frankfurt": 3
+    },
+    {
+      "Essen": 2
+    },
+    {
+      "Danzic": 4
+    },
+    {
+      "Warszawa": 4
+    },
+    {
+      "Wien": 3
+    }
+  ],
+  "Munchen": [
+    {
+      "Frankfurt": 2
+    },
+    {
+      "Zurich": 2
+    },
+    {
+      "Wien": 3
+    },
+    {
+      "Venezia": 2
+    }
+  ],
+  "Zurich": [
+    {
+      "Munchen": 2
+    },
+    {
+      "Venezia": 2
+    },
+    {
+      "Paris": 3
+    },
+    {
+      "Marseille": 2
+    }
+  ],
+  "Wien": [
+    {
+      "Munchen": 3
+    },
+    {
+      "Berlin": 3
+    },
+    {
+      "Warszawa": 4
+    },
+    {
+      "Zagreb": 2
+    },
+    {
+      "Budapest": 1
+    }
+  ],
+  "Venezia": [
+    {
+      "Munchen": 2
+    },
+    {
+      "Zagreb": 2
+    },
+    {
+      "Roma": 2
+    },
+    {
+      "Zurich": 2
+    }
+  ],
+  "Zagreb": [
+    {
+      "Venezia": 2
+    },
+    {
+      "Sarajevo": 3
+    },
+    {
+      "Budapest": 2
+    },
+    {
+      "Wien": 2
+    }
+  ],
+  "Roma": [
+    {
+      "Venezia": 2
+    },
+    {
+      "Marseille": 4
+    },
+    {
+      "Palermo": 4
+    },
+    {
+      "Brindisi": 2
+    }
+  ],
+  "Marseille": [
+    {
+      "Zurich": 2
+    },
+    {
+      "Paris": 4
+    },
+    {
+      "Pamplona": 4
+    },
+    {
+      "Barcelonna": 4
+    },
+    {
+      "Roma": 4
+    }
+  ],
+  "Pamplona": [
+    {
+      "Paris": 4
+    },
+    {
+      "Brest": 4
+    },
+    {
+      "Madrid": 3
+    },
+    {
+      "Marseille": 4
+    },
+    {
+      "Barcelonna": 2
+    }
+  ],
+  "Madrid": [
+    {
+      "Pamplona": 3
+    },
+    {
+      "Barcelonna": 2
+    },
+    {
+      "Lisboa": 3
+    },
+    {
+      "Cadiz": 3
+    }
+  ],
+  "Barcelonna": [
+    {
+      "Pamplona": 2
+    },
+    {
+      "Madrid": 2
+    },
+    {
+      "Marseille": 4
+    }
+  ],
+  "Lisboa": [
+    {
+      "Madrid": 3
+    },
+    {
+      "Cadiz": 3
+    }
+  ],
+  "Cadiz": [
+    {
+      "Madrid": 3
+    },
+    {
+      "Lisboa": 3
+    }
+  ],
+  "Palermo": [
+    {
+      "Roma": 4
+    },
+    {
+      "Brindisi": 3
+    },
+    {
+      "Smyrna": 6
+    }
+  ],
+  "Brindisi": [
+    {
+      "Roma": 2
+    },
+    {
+      "Palermo": 3
+    },
+    {
+      "Athena": 4
+    }
+  ],
+  "Athena": [
+    {
+      "Brindisi": 4
+    },
+    {
+      "Smyrna": 2
+    },
+    {
+      "Sarajevo": 4
+    },
+    {
+      "Sofia": 3
+    }
+  ],
+  "Smyrna": [
+    {
+      "Athena": 2
+    },
+    {
+      "Palermo": 6
+    },
+    {
+      "Constantinople": 2
+    },
+    {
+      "Ancora": 3
+    }
+  ],
+  "Sarajevo": [
+    {
+      "Athena": 4
+    },
+    {
+      "Budapest": 3
+    },
+    {
+      "Sofja": 2
+    },
+    {
+      "Zagreb": 3
+    }
+  ],
+  "Sofia": [
+    {
+      "Athena": 3
+    },
+    {
+      "Constantinople": 3
+    },
+    {
+      "Bucuresti": 2
+    }
+  ],
+  "Constantinople": [
+    {
+      "Sofia": 3
+    },
+    {
+      "Smyrna": 2
+    },
+    {
+      "Ancora": 2
+    },
+    {
+      "Sevastopol": 4
+    },
+    {
+      "Bucuresti": 3
+    }
+  ],
+  "Ancora": [
+    {
+      "Constantinople": 2
+    },
+    {
+      "Erzurus": 3
+    },
+    {
+      "Smyrna": 3
+    }
+  ],
+  "Sevastopol": [
+    {
+      "Constantinople": 4
+    },
+    {
+      "Bucuresti": 4
+    },
+    {
+      "Erzurus": 4
+    },
+    {
+      "Socri": 2
+    },
+    {
+      "Rostov": 4
+    }
+  ],
+  "Bucuresti": [
+    {
+      "Constantinople": 3
+    },
+    {
+      "Sofia": 2
+    },
+    {
+      "Sevastopol": 4
+    },
+    {
+      "Kyiv": 4
+    },
+    {
+      "Budapest": 4
+    }
+  ],
+  "Erzurus": [
+    {
+      "Sevastopol": 4
+    },
+    {
+      "Socri": 3
+    },
+    {
+      "Ancora": 3
+    }
+  ],
+  "Socri": [
+    {
+      "Erzurus": 3
+    },
+    {
+      "Sevastopol": 2
+    },
+    {
+      "Rostov": 2
+    }
+  ],
+  "Rostov": [
+    {
+      "Socri": 2
+    },
+    {
+      "Sevastopol": 4
+    },
+    {
+      "Kharkov": 2
+    }
+  ],
+  "Kharkov": [
+    {
+      "Rostov": 2
+    },
+    {
+      "Kyiv": 4
+    },
+    {
+      "Moskva": 4
+    }
+  ],
+  "Kyiv": [
+    {
+      "Kharkov": 4
+    },
+    {
+      "Skolensk": 3
+    },
+    {
+      "Wilno": 2
+    },
+    {
+      "Warszawa": 4
+    },
+    {
+      "Bucuresti": 4
+    },
+    {
+      "Budapest": 6
+    }
+  ],
+  "Moskva": [
+    {
+      "Kharkov": 4
+    },
+    {
+      "Petrograd": 4
+    },
+    {
+      "Skolensk": 2
+    }
+  ],
+  "Petrograd": [
+    {
+      "Moskva": 4
+    },
+    {
+      "Wilno": 4
+    },
+    {
+      "Riga": 4
+    },
+    {
+      "Stockolm": 8
+    }
+  ],
+  "Skolensk": [
+    {
+      "Moskva": 2
+    },
+    {
+      "Kyiv": 3
+    },
+    {
+      "Wilno": 3
+    }
+  ],
+  "Wilno": [
+    {
+      "Skolensk": 3
+    },
+    {
+      "Petrograd": 4
+    },
+    {
+      "Kyiv": 2
+    },
+    {
+      "Warszawa": 3
+    },
+    {
+      "Riga": 4
+    }
+  ],
+  "Warszawa": [
+    {
+      "Wilno": 3
+    },
+    {
+      "Berlin": 4
+    },
+    {
+      "Wien": 4
+    },
+    {
+      "Danzic": 2
+    },
+    {
+      "Kyiv": 4
+    }
+  ],
+  "Riga": [
+    {
+      "Wilno": 4
+    },
+    {
+      "Petrograd": 4
+    },
+    {
+      "Danzic": 3
+    }
+  ],
+  "Stockolm": [
+    {
+      "Petrograd": 8
+    },
+    {
+      "Kobenhavn": 3
+    }
+  ],
+  "Kobenhavn": [
+    {
+      "Stockolm": 3
+    },
+    {
+      "Essen": 3
+    }
+  ],
+  "Danzic": [
+    {
+      "Berlin": 4
+    },
+    {
+      "Warszawa": 2
+    },
+    {
+      "Riga": 3
+    }
+  ],
+  "Budapest": [
+    {
+      "Kyiv": 6
+    },
+    {
+      "Bucuresti": 4
+    },
+    {
+      "Sarajevo": 3
+    },
+    {
+      "Zagreb": 2
+    },
+    {
+      "Wien": 1
+    }
+  ],
+  "Sofja": [
+    {
+      "Sarajevo": 2
+    }
+  ]
+}
