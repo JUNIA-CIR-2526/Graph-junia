@@ -1,9 +1,12 @@
 package com.jad.graph;
 
 import com.google.gson.Gson;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
 
 public class Graph {
     private final List<Node<String>> nodes = new ArrayList<>();
@@ -86,10 +89,59 @@ public class Graph {
         }
     }
 
+    public Hashtable<String, Pair<Integer, String>> getDijkstraArrayFrom(final String start) {
+        final Hashtable<String, Pair<Integer, String>> dijkstraArray = new Hashtable<>();
+        final Node<String> startNode = this.getNodeByValue(start);
+        if (startNode == null) throw new IllegalArgumentException("Start node not found in graph");
+        dijkstraArray.put(start, Pair.of(0, null));
+        List<Link<String>> links = new ArrayList<>(startNode.getLinks());
+        while (dijkstraArray.size() < this.nodes.size()) {
+            final Link<String> minLink = this.popMinLink(links, new ArrayList<>());
+            if (minLink == null) throw new IllegalStateException("Graph is not fully connected");
+            final Node<String> nextNode = this.getNextNode(minLink, dijkstraArray);
+            final Node<String> fromNode = this.getFromNode(minLink, dijkstraArray);
+            dijkstraArray.put(nextNode.getValue(), Pair.of(minLink.getWeight(), fromNode.getValue()));
+            links.addAll(this.addWeightToAllLinks(nextNode.getLinks(), minLink.getWeight()));
+            this.cleanLinks(links, dijkstraArray.keySet());
+        }
+        return dijkstraArray;
+    }
+
+    private Node<String> getNextNode(final Link<String> minLink,
+                                     final Hashtable<String, Pair<Integer, String>> dijkstraArray) {
+        boolean firstInDijkstra = dijkstraArray.containsKey(minLink.getFirst().getValue());
+        boolean secondInDijkstra = dijkstraArray.containsKey(minLink.getSecond().getValue());
+        if (firstInDijkstra && !secondInDijkstra) return minLink.getSecond();
+        if (!firstInDijkstra && secondInDijkstra) return minLink.getFirst();
+        throw new IllegalStateException("Both nodes of the link are already in the Dijkstra array");
+    }
+
+    private Node<String> getFromNode(final Link<String> minLink,
+                                     final Hashtable<String, Pair<Integer, String>> dijkstraArray) {
+        boolean firstInDijkstra = dijkstraArray.containsKey(minLink.getFirst().getValue());
+        boolean secondInDijkstra = dijkstraArray.containsKey(minLink.getSecond().getValue());
+        if (firstInDijkstra && !secondInDijkstra) return minLink.getFirst();
+        if (!firstInDijkstra && secondInDijkstra) return minLink.getSecond();
+        throw new IllegalStateException("Both nodes of the link are already in the Dijkstra array");
+    }
+
+    private List<Link<String>> addWeightToAllLinks(final List<Link<String>> links, final int weightToAdd) {
+        final List<Link<String>> result = new ArrayList<>();
+        for (final Link<String> link : links) {
+            result.add(new Link<>(link.getFirst(), link.getSecond(), link.getWeight() + weightToAdd));
+        }
+        return result;
+    }
+
+    private void cleanLinks(final List<Link<String>> links, final Set<String> keys) {
+        links.removeIf(link -> keys.contains(link.getFirst().getValue())
+                && keys.contains(link.getSecond().getValue()));
+    }
+
     private record JSonLink(int weight, List<String> nodes) {
     }
 
-    private class BoruvkaNode {
+    private static class BoruvkaNode {
         private final ArrayList<Node<String>> nodes;
         private int id;
 

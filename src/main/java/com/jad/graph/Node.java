@@ -28,6 +28,7 @@ public class Node<E> {
         return false;
     }
 
+
     @Override
     public String toString() {
         return "Node{" +
