@@ -11,6 +11,15 @@ public class Link<E> {
         this.weight = weight;
     }
 
+    @Override
+    public String toString() {
+        return "Link{" +
+                "first=" + getFirst() +
+                ", second=" + getSecond() +
+                ", weight=" + getWeight() +
+                '}';
+    }
+
     public Node<E> getFirst() {
         return this.first;
     }

@@ -13,15 +13,6 @@ public class Node<E> {
 
     }
 
-
-    public List<Link<E>> getLinks() {
-        return Collections.unmodifiableList(this.links);
-    }
-
-    public E getValue() {
-        return this.value;
-    }
-
     public void connectTo(Node<E> node, final int weight) {
         if (!this.isAlreadyConnectedTo(node)) {
             final Link<E> link = new Link<>(this, node, weight);
@@ -35,5 +26,20 @@ public class Node<E> {
             if (link.getFirst() == node || link.getSecond() == node) return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "value=" + getValue() +
+                '}';
+    }
+
+    public E getValue() {
+        return this.value;
+    }
+
+    public List<Link<E>> getLinks() {
+        return Collections.unmodifiableList(this.links);
     }
 }

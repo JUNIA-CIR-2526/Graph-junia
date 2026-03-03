@@ -1,7 +1,6 @@
 package com.jad.graph;
 
 import com.google.gson.Gson;
-import com.jad.treenode.NaryTreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Graph {
         return null;
     }
 
-    public NaryTreeNode<String> getBoruvkaTree() {
+    public List<Link<String>> getBoruvkaTree() {
 
         List<BoruvkaNode> boruvkaNodes = new ArrayList<>();
         for (final Node<String> node : this.nodes) {
@@ -40,27 +39,24 @@ public class Graph {
         }
         final List<Link<String>> result = new ArrayList<>();
         final List<Link<String>> links = this.getAllLinks();
-        while (boruvkaNodes.size() > 1) {
+        while (links.size() > 1) {
             Link<String> minLink = this.popMinLink(links, boruvkaNodes);
-            if (minLink == null) {
-                throw new IllegalStateException("Graph is not fully connected");
-            }
+            if (minLink == null) throw new IllegalStateException("Graph is not fully connected");
             BoruvkaNode firstNode = this.getBoruvkaNodeByNode(minLink.getFirst(), boruvkaNodes);
             BoruvkaNode secondNode = this.getBoruvkaNodeByNode(minLink.getSecond(), boruvkaNodes);
-            if (firstNode.id() != secondNode.id()) {
-                // à finir semaine prochaine
+            if (firstNode.getId() != secondNode.getId()) {
+                this.setIdToAllNodesWithId(firstNode.getId(), secondNode.getId(), boruvkaNodes);
+                result.add(minLink);
             }
         }
-        return null;
+        return result;
     }
 
     private List<Link<String>> getAllLinks() {
         final List<Link<String>> links = new ArrayList<>();
         for (final Node<String> node : this.nodes) {
             for (final Link<String> link : node.getLinks()) {
-                if (!links.contains(link)) {
-                    links.add(link);
-                }
+                if (!links.contains(link)) links.add(link);
             }
         }
         return links;
@@ -69,19 +65,7 @@ public class Graph {
     private Link<String> popMinLink(final List<Link<String>> links, final List<BoruvkaNode> boruvkaNodes) {
         Link<String> minLink = null;
         for (final Link<String> link : links) {
-            if (minLink == null || link.getWeight() < minLink.getWeight()) {
-                boolean isValid = false;
-                for (final BoruvkaNode boruvkaNode : boruvkaNodes) {
-                    if (boruvkaNode.nodes().contains(link.getFirst()) && boruvkaNode.nodes().contains(
-                            link.getSecond())) {
-                        isValid = true;
-                        break;
-                    }
-                }
-                if (isValid) {
-                    minLink = link;
-                }
-            }
+            if (minLink == null || link.getWeight() < minLink.getWeight()) minLink = link;
         }
         links.remove(minLink);
         return minLink;
@@ -89,14 +73,43 @@ public class Graph {
 
     private BoruvkaNode getBoruvkaNodeByNode(final Node<String> first, final List<BoruvkaNode> boruvkaNodes) {
         for (final BoruvkaNode boruvkaNode : boruvkaNodes) {
-            if (boruvkaNode.nodes().contains(first)) return boruvkaNode;
+            if (boruvkaNode.getNodes().contains(first)) return boruvkaNode;
         }
         throw new IllegalStateException("Node not found in any Boruvka node");
     }
 
-    private record BoruvkaNode(int id, ArrayList<Node<String>> nodes) {
+    private void setIdToAllNodesWithId(final int idToSet, final int idToReplace, final List<BoruvkaNode> boruvkaNodes) {
+        for (BoruvkaNode boruvkaNode : boruvkaNodes) {
+            if (boruvkaNode.getId() == idToReplace) {
+                boruvkaNode.setId(idToSet);
+            }
+        }
     }
 
     private record JSonLink(int weight, List<String> nodes) {
     }
+
+    private class BoruvkaNode {
+        private final ArrayList<Node<String>> nodes;
+        private int id;
+
+        public BoruvkaNode(final int id, final ArrayList<Node<String>> nodes) {
+            this.nodes = nodes;
+            this.id = id;
+        }
+
+        public int getId() {
+            return this.id;
+        }
+
+        public void setId(final int id) {
+            this.id = id;
+        }
+
+        public ArrayList<Node<String>> getNodes() {
+            return this.nodes;
+        }
+
+    }
+
 }

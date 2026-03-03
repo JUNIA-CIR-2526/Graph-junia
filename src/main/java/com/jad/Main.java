@@ -10,5 +10,6 @@ public class Main {
         String json = new String(Main.class.getResourceAsStream("/AventuriersDuRailEurope-links.json").readAllBytes());
         graph.loadFromJson(json);
         System.out.println(graph);
+        System.out.println(graph.getBoruvkaTree());
     }
 }
